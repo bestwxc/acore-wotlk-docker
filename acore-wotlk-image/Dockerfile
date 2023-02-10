@@ -20,10 +20,11 @@ RUN set -eux \
 
 ####
 FROM base-without-maps as downloader
+# ARG USER_NAME=acore
 RUN set -eux \
     &&  sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list \
     && apt update \
-    && apt-get install -y --no-install-recommends git wget zip unzip curl
+    && apt-get install -y --no-install-recommends git wget zip unzip curl \
 WORKDIR /home/$USER_NAME
 
 # 下载资源
@@ -58,14 +59,6 @@ RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-item-level-
 # mod-duel-reset
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-duel-reset.git
 
-
-
-
-
-
-
-
-
 ####
 FROM base-without-maps as builder
 RUN set -eux \
@@ -79,24 +72,30 @@ WORKDIR /home/$USER_NAME
 ####
 FROM base-without-maps as base-with-maps
 # copy data to base with maps
+ARG USER_NAME=acore
 
 ####
 FROM base-without-maps as ac-wotlk-authserver-without-maps
+ARG USER_NAME=acore
 
 ####
 FROM base-without-maps as ac-wotlk-worldserver-without-maps
+ARG USER_NAME=acore
 
 ####
 FROM base-without-maps as ac-wotlk-all-without-maps
+ARG USER_NAME=acore
 
 ####
 FROM base-with-maps as ac-wotlk-authserver-with-maps
+ARG USER_NAME=acore
 
 ####
 FROM base-with-maps as ac-wotlk-worldserver-with-maps
+ARG USER_NAME=acore
 
 ####
 FROM base-with-maps as ac-wotlk-all-with-maps
-
+ARG USER_NAME=acore
 
 
