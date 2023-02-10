@@ -51,8 +51,6 @@ RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-anticheat.g
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-weapon-visual.git
 # mod-autobalance
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-autobalance.git
-# mod-weapon-visual
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-weapon-visual.git
 # mod-ah-bot
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-ah-bot.git
 # mod-item-level-up
