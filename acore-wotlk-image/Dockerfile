@@ -33,19 +33,6 @@ RUN wget --no-check-certificate https://github.com/wowgaming/client-data/release
     && unzip data.zip -d data \
     && rm -rf data.zip
 
-# 下载源码
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/azerothcore-wotlk.git \
-    --branch master --single-branch azerothcore --depth 1
-# mod-zone-difficulty
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-zone-difficulty.git
-# mod-progression-system
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-progression-system.git
-# mod-guildhouse
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-guildhouse.git
-# mod-eluna
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-eluna.git
-# mod-transmog
-RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-transmog.git
 # mod-anticheat
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-anticheat.git
 # mod-weapon-visual
@@ -62,6 +49,21 @@ RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-duel-reset.
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-dynamic-xp.git
 # mod-keep-out
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-keep-out.git
+
+# mod-zone-difficulty
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-zone-difficulty.git
+# mod-progression-system
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-progression-system.git
+# mod-guildhouse
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-guildhouse.git
+# mod-eluna
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-eluna.git
+# mod-transmog
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-transmog.git
+
+# 下载源码
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/azerothcore-wotlk.git \
+    --branch master --single-branch azerothcore --depth 1
 
 
 
