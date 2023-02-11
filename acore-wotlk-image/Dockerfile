@@ -58,6 +58,12 @@ RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-ah-bot.git
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-item-level-up.git
 # mod-duel-reset
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-duel-reset.git
+# 动态xp
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-dynamic-xp.git
+# mod-keep-out
+RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-keep-out.git
+
+
 
 ####
 FROM base-without-maps as builder
