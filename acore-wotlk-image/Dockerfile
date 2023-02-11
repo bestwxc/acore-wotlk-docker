@@ -19,7 +19,7 @@ RUN set -eux \
 
 
 ####
-FROM debian:11.6 as downloader
+FROM debian:11.6 as src-downloader
 ARG USER_NAME=acore
 RUN set -eux \
     &&  sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list \
@@ -27,11 +27,16 @@ RUN set -eux \
     && apt-get install -y --no-install-recommends git wget zip unzip curl
 WORKDIR /home/$USER_NAME
 
+###
+FROM src-downloader as acore-maps-data
 # 下载资源
 RUN wget --no-check-certificate https://github.com/wowgaming/client-data/releases/download/v16/data.zip \
     && mkdir -p data \
     && unzip data.zip -d data \
     && rm -rf data.zip
+
+###
+FROM src-downloader as acore-plugin-sources
 
 # mod-anticheat
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-anticheat.git
@@ -61,6 +66,8 @@ RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-eluna.git
 # mod-transmog
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/mod-transmog.git
 
+###
+FROM src-downloader as acore-source-code
 # 下载源码
 RUN GIT_SSL_NO_VERIFY=1 git clone https://github.com/azerothcore/azerothcore-wotlk.git \
     --branch master --single-branch azerothcore --depth 1
