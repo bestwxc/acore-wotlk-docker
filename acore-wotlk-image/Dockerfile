@@ -20,7 +20,7 @@ RUN set -eux \
 
 ####
 FROM base-without-maps as downloader
-# ARG USER_NAME=acore
+ARG USER_NAME=acore
 RUN set -eux \
     &&  sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list \
     && apt update \
