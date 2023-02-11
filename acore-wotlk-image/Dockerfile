@@ -19,7 +19,7 @@ RUN set -eux \
 
 
 ####
-FROM base-without-maps as downloader
+FROM debian:11.6 as downloader
 ARG USER_NAME=acore
 RUN set -eux \
     &&  sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list \
