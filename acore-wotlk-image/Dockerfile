@@ -24,7 +24,7 @@ ARG USER_NAME=acore
 RUN set -eux \
     &&  sed -i s@/deb.debian.org/@/mirrors.ustc.edu.cn/@g /etc/apt/sources.list \
     && apt update \
-    && apt-get install -y --no-install-recommends git wget zip unzip curl \
+    && apt-get install -y --no-install-recommends git wget zip unzip curl
 WORKDIR /home/$USER_NAME
 
 # 下载资源
@@ -103,5 +103,4 @@ ARG USER_NAME=acore
 ####
 FROM base-with-maps as ac-wotlk-all-with-maps
 ARG USER_NAME=acore
-
 
